@@ -3,677 +3,1073 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Knowledge Public School (Taha Campus) Multan</title>
+    <title>The Knowledge Public School Multan - Home</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Variables */
-        :root {
-            --primary: #1a4d8c;
-            --secondary: #f9a826;
-            --accent: #2e7d32;
-            --light: #f5f5f5;
-            --dark: #333;
-            --white: #fff;
-            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Body Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-        }
-
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo h1 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .logo p {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Navigation */
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-menu li {
-            margin-left: 20px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            padding: 5px 0;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--secondary);
-        }
-
-        .nav-menu a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--secondary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(26, 77, 140, 0.8), rgba(46, 125, 50, 0.8));
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            text-align: center;
-            padding: 100px 0;
-            margin-bottom: 50px;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 30px !important;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #e8940c;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        .section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--dark);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            background: var(--white);
-            padding: 30px 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        /* Programs */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .program-card {
-            background: var(--white);
-            padding: 30px 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .program-card:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: translateY(-5px);
-        }
-
-        .program-card:hover h3 {
-            color: var(--white);
-        }
-
-        .program-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-top: 20px;
-        }
-
-        /* Page Content */
-        .page-content {
-            padding: 60px 0;
-            display: none;
-        }
-
-        .page-content.active {
-            display: block;
-        }
-
-        .content-block {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-
-        .content-block h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 200px;
-            background-color: #eee;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Faculty */
-        .faculty-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .faculty-member {
-            text-align: center;
-            padding: 20px;
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .faculty-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: var(--light);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--primary);
-            border: 4px solid var(--secondary);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 50px 0 0;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-section i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section a {
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                flex-direction: column;
-                background-color: var(--white);
-                box-shadow: var(--shadow);
-                transition: left 0.3s;
-                padding: 20px 0;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-menu li {
-                margin: 0;
-                width: 100%;
-            }
-            
-            .nav-menu a {
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .content-block {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo h1 {
-                font-size: 1.2rem;
-            }
-            
-            .hero {
-                padding: 70px 0;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section {
-                padding: 40px 0;
-            }
-            
-            .features,
-            .programs-grid,
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <h1>The Knowledge Public School</h1>
-                <p>Taha Campus, Multan</p>
-            </div>
-            <nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-                    <li><a href="#" class="nav-link" data-page="academics">Academics</a></li>
-                    <li><a href="#" class="nav-link" data-page="admissions">Admissions</a></li>
-                    <li><a href="#" class="nav-link" data-page="faculty">Faculty</a></li>
-                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
-                    <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
-                </ul>
-            </nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-circle">
+                    <span class="logo-text">TKPS</span>
+                </div>
+                <div class="logo-text-container">
+                    <h2>The Knowledge</h2>
+                    <p>Public School Multan</p>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- Home Page Content -->
-    <section id="home-page" class="page-content active">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-content">
-                <h2>Welcome to The Knowledge Public School</h2>
-                <p>Where Excellence Meets Education</p>
-                <p class="hero-subtitle">Nurturing young minds from Playgroup to Matriculation</p>
-                <a href="#" class="btn nav-link" data-page="admissions">Admissions Open</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">The Knowledge Public School Multan</h1>
+            <p class="hero-subtitle">Excellence in Education, Integrity in Character</p>
+            <p class="hero-description">Providing quality education from Playgroup to Matriculation with a focus on holistic development.</p>
+            <div class="hero-buttons">
+                <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
             </div>
-        </section>
-
-        <!-- Main Content -->
-        <main class="container">
-            <!-- Mission & Vision -->
-            <section class="section">
-                <h2 class="section-title">Our Mission & Vision</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <i class="fas fa-bullseye feature-icon"></i>
-                        <h3>Our Mission</h3>
-                        <p>To provide holistic education that develops students' intellectual, emotional, social, and physical potential.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-eye feature-icon"></i>
-                        <h3>Our Vision</h3>
-                        <p>To be a leading educational institution that inspires passion for learning and fosters creativity.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-graduation-cap feature-icon"></i>
-                        <h3>Our Values</h3>
-                        <p>Integrity, respect, responsibility, compassion, and excellence in everything we do.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Highlights -->
-            <section class="section highlights">
-                <h2 class="section-title">School Highlights</h2>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <p>Years of Excellence</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <p>Qualified Teachers</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1000+</div>
-                        <p>Successful Students</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <p>Board Results</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Programs -->
-            <section class="section">
-                <h2 class="section-title">Academic Programs</h2>
-                <p class="section-subtitle">From Playgroup to Matriculation</p>
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <h3>Early Years</h3>
-                        <p>Playgroup, Nursery, KG</p>
-                        <i class="fas fa-child program-icon"></i>
-                    </div>
-                    <div class="program-card">
-                        <h3>Primary</h3>
-                        <p>Grade 1 to Grade 5</p>
-                        <i class="fas fa-pencil-alt program-icon"></i>
-                    </div>
-                    <div class="program-card">
-                        <h3>Middle</h3>
-                        <p>Grade 6 to Grade 8</p>
-                        <i class="fas fa-book program-icon"></i>
-                    </div>
-                    <div class="program-card">
-                        <h3>Secondary</h3>
-                        <p>Grade 9 & 10 (Matric)</p>
-                        <i class="fas fa-graduation-cap program-icon"></i>
-                    </div>
-                </div>
-            </section>
-        </main>
+        </div>
+        <div class="hero-overlay"></div>
     </section>
 
-    <!-- About Page -->
-    <section id="about-page" class="page-content">
-        <main class="container">
-            <h1 class="section-title">About Our School</h1>
-            
-            <div class="content-block">
-                <h2>School History</h2>
-                <p>The Knowledge Public School (Taha Campus) was established in 2008 with a vision to provide quality education to the children of Multan. Starting with just a few students, we have grown into a respected institution known for academic excellence.</p>
-                <p>Our campus features modern facilities including well-equipped classrooms, science and computer labs, a library, and sports grounds.</p>
+    <!-- About Section -->
+    <section class="section about-home">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Welcome to TKPS</h2>
+                <p class="section-subtitle">Nurturing Future Leaders Since 2005</p>
             </div>
-
-            <div class="content-block">
-                <h2>Principal's Message</h2>
-                <div style="text-align: center; margin: 30px 0;">
-                    <div class="faculty-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Mr. Muhammad Taha</h3>
-                    <p style="color: var(--secondary); font-weight: 600;">Principal</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The Knowledge Public School Multan is a premier educational institution committed to providing a balanced and comprehensive education that fosters academic excellence, character building, and modern learning methodologies.</p>
+                    <p>With campuses in prime locations of Multan, including our Taha Campus, we offer a stimulating learning environment from Playgroup to Matriculation.</p>
+                    <a href="about.html" class="btn btn-outline">Read More About Us</a>
                 </div>
-                <p>"Welcome to The Knowledge Public School! Our mission is to provide a nurturing environment where every student can discover their talents and reach their full potential. We believe in educating the whole child - intellectually, emotionally, socially, and physically."</p>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-school"></i>
+                        <p>TKPS Campus</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="content-block">
-                <h2>Mission & Vision</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <i class="fas fa-bullseye feature-icon"></i>
-                        <h3>Our Mission</h3>
-                        <p>To provide holistic education that develops students' intellectual, emotional, social, and physical potential,
+    <!-- Highlights Section -->
+    <section class="section highlights">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Pillars</h2>
+                <p class="section-subtitle">Foundations of Our Educational Philosophy</p>
+            </div>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>To be a leading institution in Pakistan that produces academically excellent, morally upright, and socially responsible citizens who contribute positively to society.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Mission</h3>
+                    <p>To provide a holistic education that balances academic rigor with character development, fostering critical thinking, creativity, and ethical values in a nurturing environment.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Values</h3>
+                    <p>Integrity, Excellence, Respect, Responsibility, and Compassion. We instill these core values in every student to help them become well-rounded individuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section programs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Academic Programs</h2>
+                <p class="section-subtitle">From Playgroup to Matriculation</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>Primary School</h3>
+                    <p>Playgroup to Grade 5</p>
+                    <ul>
+                        <li>Foundation building curriculum</li>
+                        <li>Activity-based learning</li>
+                        <li>Character development programs</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <h3>Middle School</h3>
+                    <p>Grade 6 to Grade 8</p>
+                    <ul>
+                        <li>Subject specialization introduction</li>
+                        <li>Critical thinking development</li>
+                        <li>Project-based assessments</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <h3>High School</h3>
+                    <p>Grade 9 to Matriculation</p>
+                    <ul>
+                        <li>Board exam preparation</li>
+                        <li>Career counseling</li>
+                        <li>Advanced learning resources</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="academics.html" class="btn btn-primary">View All Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-circle small">
+                            <span class="logo-text">TKPS</span>
+                        </div>
+                        <div>
+                            <h3>The Knowledge Public School</h3>
+                            <p>Multan, Pakistan</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A premier educational institution focused on academic excellence and character building.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan</li>
+                        <li><i class="fas fa-phone"></i> 0300-00521168</li>
+                        <li><i class="fas fa-envelope"></i> info@tkps.edu.pk</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright">© 2023 The Knowledge Public School Multan. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - The Knowledge Public School Multan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-circle">
+                    <span class="logo-text">TKPS</span>
+                </div>
+                <div class="logo-text-container">
+                    <h2>The Knowledge</h2>
+                    <p>Public School Multan</p>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html" class="active">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Academic Programs</h1>
+            <p>Comprehensive Education from Playgroup to Matriculation</p>
+        </div>
+    </section>
+
+    <!-- Academic Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="academic-overview">
+                <div class="overview-text">
+                    <h2>Our Academic Approach</h2>
+                    <p>At The Knowledge Public School, we follow a balanced curriculum that combines the best of traditional teaching methods with modern educational practices. Our approach focuses on developing critical thinking, creativity, and problem-solving skills in students.</p>
+                    <p>We offer a comprehensive educational journey from early childhood through secondary education, preparing students for board examinations and future academic pursuits.</p>
+                </div>
+                <div class="overview-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-graduation-cap"></i>
+                        <p>Academic Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Offered -->
+    <section class="section programs-detailed">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Programs Offered</h2>
+                <p class="section-subtitle">Tailored education for every stage of development</p>
+            </div>
+            
+            <div class="program-detailed-grid">
+                <div class="program-detailed-card">
+                    <div class="program-header">
+                        <h3>Early Years Program</h3>
+                        <p class="program-grade">Playgroup to KG</p>
+                    </div>
+                    <div class="program-body">
+                        <p>Our early years program focuses on holistic development through play-based learning and activities that stimulate curiosity and creativity.</p>
+                        <ul>
+                            <li>Language and literacy development</li>
+                            <li>Basic numeracy skills</li>
+                            <li>Social and emotional learning</li>
+                            <li>Fine and gross motor skills</li>
+                            <li>Creative arts and music</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-detailed-card">
+                    <div class="program-header">
+                        <h3>Primary School</h3>
+                        <p class="program-grade">Grade 1 to Grade 5</p>
+                    </div>
+                    <div class="program-body">
+                        <p>The primary school curriculum builds a strong foundation in core subjects while encouraging exploration and independent thinking.</p>
+                        <ul>
+                            <li>English, Urdu, Mathematics</li>
+                            <li>General Science and Social Studies</li>
+                            <li>Islamic Studies / Ethics</li>
+                            <li>Computer Studies</li>
+                            <li>Art, Music, and Physical Education</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-detailed-card">
+                    <div class="program-header">
+                        <h3>Middle School</h3>
+                        <p class="program-grade">Grade 6 to Grade 8</p>
+                    </div>
+                    <div class="program-body">
+                        <p>Middle school program introduces subject specialization while developing analytical skills and preparing students for higher education.</p>
+                        <ul>
+                            <li>Advanced Mathematics and Sciences</li>
+                            <li>Pakistan Studies and History</li>
+                            <li>Geography and Civics</li>
+                            <li>Advanced Computer Studies</li>
+                            <li>Career guidance and counseling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-detailed-card">
+                    <div class="program-header">
+                        <h3>High School</h3>
+                        <p class="program-grade">Grade 9 to Matriculation</p>
+                    </div>
+                    <div class="program-body">
+                        <p>Our high school program prepares students for Board examinations while developing skills for university and career success.</p>
+                        <ul>
+                            <li>Science and Arts streams</li>
+                            <li>Board exam preparation</li>
+                            <li>Advanced laboratory work</li>
+                            <li>Research and project work</li>
+                            <li>University admission guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Co-curricular Activities -->
+    <section class="section co-curricular">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Co-curricular Activities</h2>
+                <p class="section-subtitle">Holistic development beyond the classroom</p>
+            </div>
+            
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Sports & Athletics</h3>
+                    <p>Basketball, cricket, football, table tennis, and athletics to promote physical fitness and teamwork.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Arts & Crafts</h3>
+                    <p>Painting, drawing, pottery, and craft workshops to nurture creativity and artistic expression.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music & Drama</h3>
+                    <p>Vocal and instrumental music classes, drama club, and annual school performances.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>STEM Club</h3>
+                    <p>Science, Technology, Engineering, and Mathematics activities including robotics and coding workshops.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Literary Society</h3>
+                    <p>Debates, declamation contests, creative writing, and book clubs to develop communication skills.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Service</h3>
+                    <p>Social welfare projects and community service initiatives to develop empathy and social responsibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section facilities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Academic Facilities</h2>
+                <p class="section-subtitle">Supporting learning with modern infrastructure</p>
+            </div>
+            
+            <div class="facilities-list">
+                <div class="facility-item">
+                    <i class="fas fa-flask"></i>
+                    <div>
+                        <h3>Science Laboratories</h3>
+                        <p>Well-equipped physics, chemistry, and biology labs for hands-on learning and experiments.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-desktop"></i>
+                    <div>
+                        <h3>Computer Labs</h3>
+                        <p>Modern computer labs with internet access and the latest software for digital literacy.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <h3>Library & Resource Center</h3>
+                        <p>Extensive collection of books, reference materials, and digital resources for research and reading.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-item">
+                    <i class="fas fa-chalkboard"></i>
+                    <div>
+                        <h3>Smart Classrooms</h3>
+                        <p>Technology-enabled classrooms with projectors and interactive learning tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-circle small">
+                            <span class="logo-text">TKPS</span>
+                        </div>
+                        <div>
+                            <h3>The Knowledge Public School</h3>
+                            <p>Multan, Pakistan</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A premier educational institution focused on academic excellence and character building.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan</li>
+                        <li><i class="fas fa-phone"></i> 0300-00521168</li>
+                        <li><i class="fas fa-envelope"></i> info@tkps.edu.pk</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright">© 2023 The Knowledge Public School Multan. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - The Knowledge Public School Multan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-circle">
+                    <span class="logo-text">TKPS</span>
+                </div>
+                <div class="logo-text-container">
+                    <h2>The Knowledge</h2>
+                    <p>Public School Multan</p>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>School Gallery</h1>
+            <p>Moments from Campus Life at TKPS</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="section gallery-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="campus">Campus</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="academics">Academics</button>
+                <button class="filter-btn" data-filter="students">Student Life</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="section gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Campus Images -->
+                <div class="gallery-item" data-category="campus">
+                    <div class="gallery-img">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Main Building</h3>
+                        <p>Taha Campus Main Building</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="campus">
+                    <div class="gallery-img">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>School Grounds</h3>
+                        <p>Beautifully maintained campus gardens</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="campus">
+                    <div class="gallery-img">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Sports Facilities</h3>
+                        <p>Basketball court and playground</p>
+                    </div>
+                </div>
+                
+                <!-- Events Images -->
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-img">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Annual Prize Distribution</h3>
+                        <p>2023 Annual Prize Distribution Ceremony</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-img">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Cultural Festival</h3>
+                        <p>Annual Cultural Festival performances</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-img">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Independence Day</h3>
+                        <p>14th August celebrations at school</p>
+                    </div>
+                </div>
+                
+                <!-- Sports Images -->
+                <div class="gallery-item" data-category="sports">
+                    <div class="gallery-img">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Football Match</h3>
+                        <p>Inter-class football competition</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="sports">
+                    <div class="gallery-img">
+                        <i class="fas fa-table-tennis"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Table Tennis</h3>
+                        <p>Table tennis tournament winners</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="sports">
+                    <div class="gallery-img">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Sports Day</h3>
+                        <p>Annual Sports Day 2023</p>
+                    </div>
+                </div>
+                
+                <!-- Academics Images -->
+                <div class="gallery-item" data-category="academics">
+                    <div class="gallery-img">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Science Lab</h3>
+                        <p>Students conducting experiments</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="academics">
+                    <div class="gallery-img">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Library Session</h3>
+                        <p>Reading time in school library</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="academics">
+                    <div class="gallery-img">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Computer Lab</h3>
+                        <p>Students learning programming</p>
+                    </div>
+                </div>
+                
+                <!-- Student Life Images -->
+                <div class="gallery-item" data-category="students">
+                    <div class="gallery-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Art Class</h3>
+                        <p>Students working on art projects</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="students">
+                    <div class="gallery-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Lunch Time</h3>
+                        <p>Students enjoying lunch break</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="students">
+                    <div class="gallery-img">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Group Activity</h3>
+                        <p>Collaborative learning in classroom</p>
+                    </div>
+                </div>
+                
+                <!-- More Images -->
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-img">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Drama Performance</h3>
+                        <p>School drama club performance</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="academics">
+                    <div class="gallery-img">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Biology Lab</h3>
+                        <p>Students studying specimens</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="sports">
+                    <div class="gallery-img">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Basketball Practice</h3>
+                        <p>School basketball team practice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Note -->
+    <section class="section gallery-note">
+        <div class="container">
+            <div class="note-card">
+                <i class="fas fa-camera"></i>
+                <h2>More Photos Coming Soon</h2>
+                <p>We're constantly updating our gallery with new photos from school events, activities, and daily campus life. Check back regularly for the latest images from The Knowledge Public School Multan.</p>
+                <p>If you're a current parent and have photos to share, please contact the school administration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-circle small">
+                            <span class="logo-text">TKPS</span>
+                        </div>
+                        <div>
+                            <h3>The Knowledge Public School</h3>
+                            <p>Multan, Pakistan</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A premier educational institution focused on academic excellence and character building.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan</li>
+                        <li><i class="fas fa-phone"></i> 0300-00521168</li>
+                        <li><i class="fas fa-envelope"></i> info@tkps.edu.pk</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright">© 2023 The Knowledge Public School Multan. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - The Knowledge Public School Multan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-circle">
+                    <span class="logo-text">TKPS</span>
+                </div>
+                <div class="logo-text-container">
+                    <h2>The Knowledge</h2>
+                    <p>Public School Multan</p>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with The Knowledge Public School</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Our Location</h3>
+                    <p>Taha Campus, Multan</p>
+                    <p>Near Chungi No. 9, Multan Road</p>
+                    <a href="#" class="contact-link">View on Map <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Numbers</h3>
+                    <p>Admissions: 0300-00521168</p>
+                    <p>Administration: 061-1234567</p>
+                    <p>Principal Office: 061-1234568</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Addresses</h3>
+                    <p>Admissions: admissions@tkps.edu.pk</p>
+                    <p>General Info: info@tkps.edu.pk</p>
+                    <p>Principal: principal@tkps.edu.pk</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 3:00 PM</p>
+                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Send Us a Message</h2>
+                <p class="section-subtitle">We'll get back to you as soon as possible</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name">
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address">
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a subject</option>
+                            <option value="admission">Admission Inquiry</option>
+                            <option value="academics">Academic Information</option>
+                            <option value="fee">Fee Structure</option>
+                            <option value="feedback">Feedback/Suggestion</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message" id="subjectError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Enter your message here"></textarea>
+                        <div class="error-message" id="messageError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </div>
+                    
+                    <div id="formSuccess" class="success-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Map & Directions -->
+    <section class="section campus-map">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Visit Our Campus</h2>
+                <p class="section-subtitle">Plan your visit to The Knowledge Public School</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Location Map</h3>
+                    <p>Taha Campus, Near Chungi No. 9, Multan Road, Multan</p>
+                    <p>We encourage prospective parents to visit our campus to see our facilities and meet our faculty. Please call ahead to schedule an appointment for a campus tour.</p>
+                </div>
+                <div class="directions">
+                    <h3>How to Reach Us</h3>
+                    <ul>
+                        <li><strong>By Car:</strong> From Multan city center, take Multan Road towards Chungi No. 9. The school is located on the right side, just after the railway crossing.</li>
+                        <li><strong>By Public Transport:</strong> Take any bus going towards Chungi No. 9. The school is a 5-minute walk from the main bus stop.</li>
+                        <li><strong>Parking:</strong> Ample parking space is available for visitors in front of the main building.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contacts -->
+    <section class="section quick-contacts">
+        <div class="container">
+            <div class="quick-contact-card">
+                <div class="quick-contact-info">
+                    <h2>Need Immediate Assistance?</h2>
+                    <p>For urgent matters, you can contact the following offices directly:</p>
+                    
+                    <div class="quick-contact-items">
+                        <div class="quick-contact-item">
+                            <h4>Admission Office</h4>
+                            <p><i class="fas fa-phone"></i> 0300-00521168</p>
+                            <p><i class="fas fa-envelope"></i> admissions@tkps.edu.pk</p>
+                        </div>
+                        
+                        <div class="quick-contact-item">
+                            <h4>Principal's Office</h4>
+                            <p><i class="fas fa-phone"></i> 061-1234568</p>
+                            <p><i class="fas fa-envelope"></i> principal@tkps.edu.pk</p>
+                        </div>
+                        
+                        <div class="quick-contact-item">
+                            <h4>Administration</h4>
+                            <p><i class="fas fa-phone"></i> 061-1234567</p>
+                            <p><i class="fas fa-envelope"></i> info@tkps.edu.pk</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-contact-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-headset"></i>
+                        <p>We're Here to Help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-circle small">
+                            <span class="logo-text">TKPS</span>
+                        </div>
+                        <div>
+                            <h3>The Knowledge Public School</h3>
+                            <p>Multan, Pakistan</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">A premier educational institution focused on academic excellence and character building.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan</li>
+                        <li><i class="fas fa-phone"></i> 0300-00521168</li>
+                        <li><i class="fas fa-envelope"></i> info@tkps.edu.pk</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright">© 2023 The Knowledge Public School Multan. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
