@@ -3,167 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Knowledge Public School (Taha Campus) Multan - Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>The Knowledge Public School (Taha Campus) Multan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Variables */
+        :root {
+            --primary: #1a4d8c;
+            --secondary: #f9a826;
+            --accent: #2e7d32;
+            --light: #f5f5f5;
+            --dark: #333;
+            --white: #fff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--secondary);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 77, 140, 0.8), rgba(46, 125, 50, 0.8));
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px !important;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e8940c;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Programs */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .program-card:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .program-card:hover h3 {
+            color: var(--white);
+        }
+
+        .program-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-top: 20px;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 60px 0;
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .content-block {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .content-block h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 200px;
+            background-color: #eee;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Faculty */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .faculty-member {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .faculty-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--light);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            border: 4px solid var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 50px 0 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                transition: left 0.3s;
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .content-block {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .features,
+            .programs-grid,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header class="header">
-        <div class="container">
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container header-container">
             <div class="logo">
-                <h1><span class="highlight">The Knowledge</span> Public School</h1>
-                <p class="campus">Taha Campus - Multan</p>
+                <h1>The Knowledge Public School</h1>
+                <p>Taha Campus, Multan</p>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="academics.html">Academics</a></li>
-                    <li><a href="admissions.html">Admissions</a></li>
-                    <li><a href="faculty.html">Faculty</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="academics">Academics</a></li>
+                    <li><a href="#" class="nav-link" data-page="admissions">Admissions</a></li>
+                    <li><a href="#" class="nav-link" data-page="faculty">Faculty</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to The Knowledge Public School</h1>
-            <p class="subtitle">Taha Campus, Multan - Where Excellence Meets Education</p>
-            <p>Nurturing young minds from Playgroup to Matriculation</p>
-            <div class="hero-buttons">
-                <a href="admissions.html" class="btn btn-primary">Admissions Open</a>
-                <a href="about.html" class="btn btn-secondary">Learn More</a>
+    <!-- Home Page Content -->
+    <section id="home-page" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h2>Welcome to The Knowledge Public School</h2>
+                <p>Where Excellence Meets Education</p>
+                <p class="hero-subtitle">Nurturing young minds from Playgroup to Matriculation</p>
+                <a href="#" class="btn nav-link" data-page="admissions">Admissions Open</a>
             </div>
-        </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="container">
+            <!-- Mission & Vision -->
+            <section class="section">
+                <h2 class="section-title">Our Mission & Vision</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye feature-icon"></i>
+                        <h3>Our Mission</h3>
+                        <p>To provide holistic education that develops students' intellectual, emotional, social, and physical potential.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-eye feature-icon"></i>
+                        <h3>Our Vision</h3>
+                        <p>To be a leading educational institution that inspires passion for learning and fosters creativity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-graduation-cap feature-icon"></i>
+                        <h3>Our Values</h3>
+                        <p>Integrity, respect, responsibility, compassion, and excellence in everything we do.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Highlights -->
+            <section class="section highlights">
+                <h2 class="section-title">School Highlights</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <p>Years of Excellence</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <p>Qualified Teachers</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <p>Successful Students</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <p>Board Results</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programs -->
+            <section class="section">
+                <h2 class="section-title">Academic Programs</h2>
+                <p class="section-subtitle">From Playgroup to Matriculation</p>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h3>Early Years</h3>
+                        <p>Playgroup, Nursery, KG</p>
+                        <i class="fas fa-child program-icon"></i>
+                    </div>
+                    <div class="program-card">
+                        <h3>Primary</h3>
+                        <p>Grade 1 to Grade 5</p>
+                        <i class="fas fa-pencil-alt program-icon"></i>
+                    </div>
+                    <div class="program-card">
+                        <h3>Middle</h3>
+                        <p>Grade 6 to Grade 8</p>
+                        <i class="fas fa-book program-icon"></i>
+                    </div>
+                    <div class="program-card">
+                        <h3>Secondary</h3>
+                        <p>Grade 9 & 10 (Matric)</p>
+                        <i class="fas fa-graduation-cap program-icon"></i>
+                    </div>
+                </div>
+            </section>
+        </main>
     </section>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Mission & Vision Section -->
-        <section class="section mission-vision">
-            <h2 class="section-title">Our Mission & Vision</h2>
-            <div class="grid-container">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-bullseye"></i>
+    <!-- About Page -->
+    <section id="about-page" class="page-content">
+        <main class="container">
+            <h1 class="section-title">About Our School</h1>
+            
+            <div class="content-block">
+                <h2>School History</h2>
+                <p>The Knowledge Public School (Taha Campus) was established in 2008 with a vision to provide quality education to the children of Multan. Starting with just a few students, we have grown into a respected institution known for academic excellence.</p>
+                <p>Our campus features modern facilities including well-equipped classrooms, science and computer labs, a library, and sports grounds.</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Principal's Message</h2>
+                <div style="text-align: center; margin: 30px 0;">
+                    <div class="faculty-photo">
+                        <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3>Our Mission</h3>
-                    <p>To provide a holistic education that develops students' intellectual, emotional, social, and physical potential, preparing them to become responsible global citizens.</p>
+                    <h3>Mr. Muhammad Taha</h3>
+                    <p style="color: var(--secondary); font-weight: 600;">Principal</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To be a leading educational institution that inspires a passion for learning, fosters creativity, and empowers students to achieve excellence in all spheres of life.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Our Values</h3>
-                    <p>We value integrity, respect, responsibility, compassion, and excellence in everything we do, creating a positive and inclusive school community.</p>
-                </div>
+                <p>"Welcome to The Knowledge Public School! Our mission is to provide a nurturing environment where every student can discover their talents and reach their full potential. We believe in educating the whole child - intellectually, emotionally, socially, and physically."</p>
             </div>
-        </section>
 
-        <!-- Highlights Section -->
-        <section class="section highlights">
-            <h2 class="section-title">School Highlights</h2>
-            <div class="grid-container">
-                <div class="highlight-item">
-                    <div class="highlight-number">15+</div>
-                    <h3>Years of Excellence</h3>
-                    <p>Over 15 years of providing quality education in Multan</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-number">50+</div>
-                    <h3>Qualified Teachers</h3>
-                    <p>Dedicated and experienced faculty members</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-number">1000+</div>
-                    <h3>Successful Students</h3>
-                    <p>Alumni excelling in various fields globally</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-number">100%</div>
-                    <h3>Board Results</h3>
-                    <p>Consistent 100% pass rate in board examinations</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Programs Section -->
-        <section class="section programs">
-            <h2 class="section-title">Academic Programs</h2>
-            <p class="section-subtitle">Comprehensive education from Playgroup to Matriculation</p>
-            <div class="grid-container">
-                <div class="program-card">
-                    <i class="fas fa-child program-icon"></i>
-                    <h3>Early Years</h3>
-                    <p>Playgroup, Nursery, KG</p>
-                </div>
-                <div class="program-card">
-                    <i class="fas fa-pencil-alt program-icon"></i>
-                    <h3>Primary</h3>
-                    <p>Grade 1 to Grade 5</p>
-                </div>
-                <div class="program-card">
-                    <i class="fas fa-book program-icon"></i>
-                    <h3>Middle</h3>
-                    <p>Grade 6 to Grade 8</p>
-                </div>
-                <div class="program-card">
-                    <i class="fas fa-graduation-cap program-icon"></i>
-                    <h3>Secondary</h3>
-                    <p>Grade 9 to Grade 10 (Matric)</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>The Knowledge Public School</h3>
-                    <p class="campus-footer">Taha Campus, Multan</p>
-                    <p>Providing quality education since 2008. Nurturing young minds for a better tomorrow.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="academics.html">Academics</a></li>
-                        <li><a href="admissions.html">Admissions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan, Pakistan</li>
-                        <li><i class="fas fa-phone"></i> 0300-00521168</li>
-                        <li><i class="fas fa-envelope"></i> info@knowledgepublicschool.edu.pk</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 The Knowledge Public School (Taha Campus) Multan. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+            <div class="content-block">
+                <h2>Mission & Vision</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye feature-icon"></i>
+                        <h3>Our Mission</h3>
+                        <p>To provide holistic education that develops students' intellectual, emotional, social, and physical potential,
