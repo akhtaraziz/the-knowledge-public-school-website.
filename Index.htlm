@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Knowledge Public School (Taha Campus) Multan - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">The Knowledge</span> Public School</h1>
+                <p class="campus">Taha Campus - Multan</p>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to The Knowledge Public School</h1>
+            <p class="subtitle">Taha Campus, Multan - Where Excellence Meets Education</p>
+            <p>Nurturing young minds from Playgroup to Matriculation</p>
+            <div class="hero-buttons">
+                <a href="admissions.html" class="btn btn-primary">Admissions Open</a>
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Mission & Vision Section -->
+        <section class="section mission-vision">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide a holistic education that develops students' intellectual, emotional, social, and physical potential, preparing them to become responsible global citizens.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be a leading educational institution that inspires a passion for learning, fosters creativity, and empowers students to achieve excellence in all spheres of life.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>We value integrity, respect, responsibility, compassion, and excellence in everything we do, creating a positive and inclusive school community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Section -->
+        <section class="section highlights">
+            <h2 class="section-title">School Highlights</h2>
+            <div class="grid-container">
+                <div class="highlight-item">
+                    <div class="highlight-number">15+</div>
+                    <h3>Years of Excellence</h3>
+                    <p>Over 15 years of providing quality education in Multan</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">50+</div>
+                    <h3>Qualified Teachers</h3>
+                    <p>Dedicated and experienced faculty members</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">1000+</div>
+                    <h3>Successful Students</h3>
+                    <p>Alumni excelling in various fields globally</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">100%</div>
+                    <h3>Board Results</h3>
+                    <p>Consistent 100% pass rate in board examinations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="section programs">
+            <h2 class="section-title">Academic Programs</h2>
+            <p class="section-subtitle">Comprehensive education from Playgroup to Matriculation</p>
+            <div class="grid-container">
+                <div class="program-card">
+                    <i class="fas fa-child program-icon"></i>
+                    <h3>Early Years</h3>
+                    <p>Playgroup, Nursery, KG</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-pencil-alt program-icon"></i>
+                    <h3>Primary</h3>
+                    <p>Grade 1 to Grade 5</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-book program-icon"></i>
+                    <h3>Middle</h3>
+                    <p>Grade 6 to Grade 8</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-graduation-cap program-icon"></i>
+                    <h3>Secondary</h3>
+                    <p>Grade 9 to Grade 10 (Matric)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The Knowledge Public School</h3>
+                    <p class="campus-footer">Taha Campus, Multan</p>
+                    <p>Providing quality education since 2008. Nurturing young minds for a better tomorrow.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan, Pakistan</li>
+                        <li><i class="fas fa-phone"></i> 0300-00521168</li>
+                        <li><i class="fas fa-envelope"></i> info@knowledgepublicschool.edu.pk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 The Knowledge Public School (Taha Campus) Multan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
