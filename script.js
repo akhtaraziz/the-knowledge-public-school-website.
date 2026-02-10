@@ -1,261 +1,156 @@
-// Mobile Menu Toggle
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        menuToggle.innerHTML = navMenu.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
-    
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-        if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-}
-
-// Gallery Filter
-const filterButtons = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
-
-if (filterButtons.length > 0 && galleryItems.length > 0) {
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            galleryItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-}
-
-// Contact Form Validation
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const subjectInput = document.getElementById('subject');
-    const messageInput = document.getElementById('message');
-    
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const subjectError = document.getElementById('subjectError');
-    const messageError = document.getElementById('messageError');
-    
-    const formSuccess = document.getElementById('formSuccess');
-    
-    // Email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        let isValid = true;
-        
-        // Reset error messages
-        nameError.textContent = '';
-        nameError.style.display = 'none';
-        emailError.textContent = '';
-        emailError.style.display = 'none';
-        subjectError.textContent = '';
-        subjectError.style.display = 'none';
-        messageError.textContent = '';
-        messageError.style.display = 'none';
-        formSuccess.textContent = '';
-        formSuccess.style.display = 'none';
-        
-        // Validate name
-        if (!nameInput.value.trim()) {
-            nameError.textContent = 'Please enter your name.';
-            nameError.style.display = 'block';
-            isValid = false;
-        }
-        
-        // Validate email
-        if (!emailInput.value.trim()) {
-            emailError.textContent = 'Please enter your email address.';
-            emailError.style.display = 'block';
-            isValid = false;
-        } else if (!emailRegex.test(emailInput.value.trim())) {
-            emailError.textContent = 'Please enter a valid email address.';
-            emailError.style.display = 'block';
-            isValid = false;
-        }
-        
-        // Validate subject
-        if (!subjectInput.value) {
-            subjectError.textContent = 'Please select a subject.';
-            subjectError.style.display = 'block';
-            isValid = false;
-        }
-        
-        // Validate message
-        if (!messageInput.value.trim()) {
-            messageError.textContent = 'Please enter your message.';
-            messageError.style.display = 'block';
-            isValid = false;
-        } else if (messageInput.value.trim().length < 10) {
-            messageError.textContent = 'Message must be at least 10 characters long.';
-            messageError.style.display = 'block';
-            isValid = false;
-        }
-        
-        if (isValid) {
-            // In a real application, you would send the form data to a server here
-            // For this example, we'll just show a success message
-            
-            formSuccess.textContent = 'Thank you for your message! We will get back to you soon.';
-            formSuccess.style.display = 'block';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Scroll to success message
-            formSuccess.scrollIntoView({ behavior: 'smooth' });
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                formSuccess.style.display = 'none';
-            }, 5000);
-        }
-    });
-    
-    // Real-time validation for email field
-    emailInput.addEventListener('input', function() {
-        if (emailInput.value.trim() && !emailRegex.test(emailInput.value.trim())) {
-            emailError.textContent = 'Please enter a valid email address.';
-            emailError.style.display = 'block';
-        } else {
-            emailError.style.display = 'none';
-        }
-    });
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Sticky header on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    
-    if (window.scrollY > 100) {
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// Active navigation link based on scroll position
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        
-        if (href && href.includes(currentSection)) {
-            link.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', updateActiveNavLink);
-
-// Initialize when page loads
+// JavaScript Code
 document.addEventListener('DOMContentLoaded', function() {
-    // Set current year in footer (optional)
-    const yearElement = document.querySelector('.copyright');
-    if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.textContent = yearElement.textContent.replace('2023', currentYear);
-    }
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
     
-    // Add animation to elements on scroll
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.highlight-card, .program-card, .gallery-item');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
+    mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
             
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
+            // Update active link
+            navLinks.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    
+    // Form submission
+    const admissionForm = document.getElementById('admissionForm');
+    admissionForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const studentName = document.getElementById('studentName').value;
+        const fatherName = document.getElementById('fatherName').value;
+        const cnic = document.getElementById('cnic').value;
+        const dob = document.getElementById('dob').value;
+        const grade = document.getElementById('grade').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+        
+        // Validate form
+        if (!studentName || !fatherName || !cnic || !dob || !grade || !phone || !address) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        
+        // Validate CNIC format (simple validation)
+        if (!/^\d{5}-\d{7}-\d{1}$/.test(cnic) && !/^\d{13}$/.test(cnic)) {
+            alert('Please enter a valid CNIC in format XXXXX-XXXXXXX-X or 13 digits.');
+            return;
+        }
+        
+        // Validate phone number
+        if (!/^\d{11,}$/.test(phone.replace(/\D/g, ''))) {
+            alert('Please enter a valid 11-digit phone number.');
+            return;
+        }
+        
+        // In a real application, you would send this data to a server
+        // For this example, we'll just show a success message
+        const gradeText = document.querySelector(`#grade option[value="${grade}"]`).textContent;
+        alert(`Thank you, ${studentName}!\n\nYour application for ${gradeText} has been submitted successfully.\n\nApplication Details:\n- Father: ${fatherName}\n- CNIC: ${cnic}\n- DOB: ${dob}\n- Phone: ${phone}\n\nWe will contact you shortly for the next steps.`);
+        
+        // Reset form
+        admissionForm.reset();
+        
+        // Scroll to top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
         });
-    };
-    
-    // Set initial state for animated elements
-    const animatedElements = document.querySelectorAll('.highlight-card, .program-card, .gallery-item');
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     });
     
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Run once on load
+    // Highlight active section in navigation
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const sections = document.querySelectorAll('section');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Format CNIC input
+    const cnicInput = document.getElementById('cnic');
+    cnicInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.length > 13) {
+            value = value.substring(0, 13);
+        }
+        
+        if (value.length > 5) {
+            value = value.substring(0, 5) + '-' + value.substring(5);
+        }
+        
+        if (value.length > 13) {
+            value = value.substring(0, 13) + '-' + value.substring(13);
+        }
+        
+        e.target.value = value;
+    });
+    
+    // Format phone input
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.length > 11) {
+            value = value.substring(0, 11);
+        }
+        
+        if (value.length > 4) {
+            value = value.substring(0, 4) + '-' + value.substring(4);
+        }
+        
+        e.target.value = value;
+    });
 });
