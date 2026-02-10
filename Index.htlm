@@ -6,90 +6,69 @@
     <title>The Knowledge Public School (Taha Campus) - Multan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container header-content">
-            <div class="logo-container">
-                <div class="logo-img">
-                    <div class="logo-text">
-                        <div>THE</div>
-                        <div>KNOWLEDGE</div>
-                        <div>PUBLIC</div>
-                        <div>SCHOOL</div>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-img">
+                        <span class="logo-text">TKPS</span>
+                    </div>
+                    <div class="logo-text-content">
+                        <h1>The Knowledge Public School</h1>
+                        <p>Taha Campus, Multan</p>
                     </div>
                 </div>
-                <div class="school-name">
-                    The Knowledge Public School
-                    <span>(Taha Campus) - Multan</span>
-                </div>
-            </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <nav class="nav-menu" id="navMenu">
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#principal">Principal's Message</a></li>
-                    <li><a href="#admissions">Admissions</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#principal" class="nav-link">Principal</a></li>
+                    <li class="nav-item"><a href="#admissions" class="nav-link">Admissions</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <a href="#apply" class="btn-apply">Apply Now</a>
+                    </li>
                 </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Excellence in Education Since 2000</h1>
-            <p>The Knowledge Public School (Taha Campus) in Multan provides quality education from Playgroup to Matriculation. We are committed to nurturing young minds with a perfect blend of academic excellence and character building.</p>
-            <a href="#admission-form" class="cta-button">Apply for Admission Now</a>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="section bg-light" id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>About Our School</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-flex">
-                    <div class="about-text">
-                        <h3>The Knowledge Public School (Taha Campus)</h3>
-                        <p>Established with a vision to provide quality education at an affordable cost, The Knowledge Public School has been a beacon of learning in Multan for over two decades.</p>
-                        <p>Our Taha Campus offers a modern learning environment with state-of-the-art facilities, experienced faculty, and a curriculum designed to develop well-rounded individuals.</p>
-                        <p>We offer education from Playgroup to Matriculation with a focus on academic excellence, character building, and holistic development.</p>
-                        <div class="stats-container">
-                            <div class="stat-item">
-                                <div class="stat-number">22+</div>
-                                <div class="stat-label">Years of Excellence</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">Qualified Teachers</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1000+</div>
-                                <div class="stat-label">Successful Students</div>
-                            </div>
-                        </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Excellence in Education Since 2000</h2>
+                    <h1>The Knowledge Public School</h1>
+                    <p class="subtitle">Taha Campus, Multan</p>
+                    <p class="description">Providing quality education from Playgroup to Matriculation with a perfect blend of academic excellence, character building, and holistic development.</p>
+                    <div class="hero-buttons">
+                        <a href="#admissions" class="btn-primary">Admission Open</a>
+                        <a href="#contact" class="btn-secondary">Contact Us</a>
                     </div>
-                    <div class="about-image">
-                        <div class="admissions-card">
-                            <div class="card-title">THE</div>
-                            <div class="card-title">KNOWLEDGE</div>
-                            <div class="card-title">PUBLIC</div>
-                            <div class="card-title">SCHOOL</div>
-                            <div class="card-subtitle">ADMISSIONS OPEN</div>
-                            <div class="card-grade">PLAYGROUP TO MATRIC</div>
-                            <div class="card-phone">0300-00521168</div>
-                            <div class="card-phone">0002-0371919</div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <div class="school-logo-large">
+                            <div class="logo-line">THE</div>
+                            <div class="logo-line">KNOWLEDGE</div>
+                            <div class="logo-line">PUBLIC</div>
+                            <div class="logo-line">SCHOOL</div>
+                            <div class="logo-subtitle">ADMISSIONS OPEN</div>
+                            <div class="logo-contact">PLAYGROUP TO MATRIC</div>
                         </div>
                     </div>
                 </div>
@@ -97,21 +76,77 @@
         </div>
     </section>
 
-    <!-- Principal's Message Section -->
-    <section class="section" id="principal">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>Principal's Message</h2>
+            <div class="section-header">
+                <h2>About Our School</h2>
+                <p>Established with a vision to provide quality education at an affordable cost</p>
             </div>
-            <div class="principal-container">
-                <div class="principal-img">
-                    <div class="principal-photo">
-                        <div class="photo-circle">
-                            <i class="fas fa-user-tie"></i>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Welcome to The Knowledge Public School</h3>
+                    <p>The Knowledge Public School (Taha Campus) has been a beacon of learning in Multan for over two decades. We are committed to nurturing young minds with a perfect blend of academic excellence and character building.</p>
+                    <p>Our campus offers a modern learning environment with state-of-the-art facilities, experienced faculty, and a curriculum designed to develop well-rounded individuals ready to face the challenges of the future.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Quality Education</h4>
+                            <p>Comprehensive curriculum from Playgroup to Matric</p>
                         </div>
-                        <h3>Principal</h3>
-                        <p>The Knowledge Public School</p>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h4>Experienced Faculty</h4>
+                            <p>Highly qualified and dedicated teaching staff</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-medal"></i>
+                            <h4>Proven Excellence</h4>
+                            <p>Consistent outstanding board results</p>
+                        </div>
                     </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="stats">
+                            <div class="stat-item">
+                                <h3>22+</h3>
+                                <p>Years of Excellence</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>Qualified Teachers</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>1000+</h3>
+                                <p>Successful Students</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>95%</h3>
+                                <p>Board Result 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal's Message -->
+    <section class="principal" id="principal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Principal's Message</h2>
+                <p>Words from our respected Principal</p>
+            </div>
+            <div class="principal-content">
+                <div class="principal-image">
+                    <div class="image-wrapper">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Mr. Principal</h3>
+                    <p>The Knowledge Public School</p>
                 </div>
                 <div class="principal-message">
                     <h3>Dear Students, Parents, and Well-wishers,</h3>
@@ -119,10 +154,11 @@
                     <p>At TKPS, we believe in nurturing not just academic proficiency but also the moral and ethical values that shape responsible citizens. Our dedicated faculty is committed to providing a supportive and challenging learning environment where every student can thrive.</p>
                     <p>We offer a comprehensive curriculum from Playgroup to Matriculation, complemented by extracurricular activities that foster creativity, critical thinking, and leadership skills. Our campus is equipped with modern facilities to support holistic development.</p>
                     <p>As we continue our educational journey, we remain committed to our mission of empowering young minds with knowledge, skills, and values to succeed in an ever-changing world.</p>
-                    <div class="principal-signature">
-                        <p>Warm regards,<br>
-                        <strong>Principal</strong><br>
-                        The Knowledge Public School (Taha Campus)</p>
+                    
+                    <div class="signature">
+                        <p>Warm regards,</p>
+                        <h4>Principal</h4>
+                        <p>The Knowledge Public School (Taha Campus)</p>
                     </div>
                 </div>
             </div>
@@ -130,163 +166,185 @@
     </section>
 
     <!-- Admissions Section -->
-    <section class="section bg-light" id="admissions">
+    <section class="admissions" id="admissions">
         <div class="container">
-            <div class="section-title">
-                <h2>Admission Requirements</h2>
+            <div class="section-header">
+                <h2>Admissions 2024</h2>
+                <p>Now accepting applications for Playgroup to Matriculation</p>
             </div>
-            <div class="admission-container">
-                <div class="admission-card">
-                    <div class="icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
+            
+            <div class="admission-process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
                     <h3>Required Documents</h3>
                     <ul>
                         <li>Birth Certificate (original + 2 copies)</li>
                         <li>B-Form / CNIC of child</li>
-                        <li>Previous school report card (if applicable)</li>
-                        <li>4 recent passport-size photographs</li>
+                        <li>Previous school report card</li>
+                        <li>4 passport-size photographs</li>
                         <li>Father's CNIC (copy)</li>
                         <li>Vaccination certificate</li>
-                        <li>Transfer certificate (for class 2 onwards)</li>
                     </ul>
                 </div>
-                <div class="admission-card">
-                    <div class="icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
                     <h3>Eligibility Criteria</h3>
                     <ul>
                         <li>Playgroup: 2.5 to 3.5 years</li>
                         <li>Nursery: 3.5 to 4.5 years</li>
                         <li>Prep: 4.5 to 5.5 years</li>
                         <li>Class 1: 5.5 to 6.5 years</li>
-                        <li>Age relaxation possible with assessment</li>
                         <li>Entrance test for Class 2 onwards</li>
-                        <li>Interview with parents and child</li>
+                        <li>Interview with parents</li>
                     </ul>
                 </div>
-                <div class="admission-card">
-                    <div class="icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
                     <h3>Admission Process</h3>
                     <ul>
-                        <li>Collect admission form from school office</li>
-                        <li>Submit completed form with documents</li>
-                        <li>Pay admission fee (non-refundable)</li>
-                        <li>Schedule entrance assessment (if required)</li>
-                        <li>Parent and student interview</li>
-                        <li>Receive admission confirmation</li>
-                        <li>Complete fee payment and join classes</li>
+                        <li>Collect admission form</li>
+                        <li>Submit with required documents</li>
+                        <li>Pay admission fee</li>
+                        <li>Entrance assessment</li>
+                        <li>Interview session</li>
+                        <li>Receive confirmation</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Admission Form Section -->
-    <section class="section" id="admission-form">
+    <!-- Online Admission Form -->
+    <section class="admission-form" id="apply">
         <div class="container">
-            <div class="section-title">
-                <h2>Online Admission Form</h2>
-            </div>
             <div class="form-container">
-                <form id="admissionForm">
-                    <div class="form-group">
-                        <label for="studentName">Student's Full Name *</label>
-                        <input type="text" id="studentName" class="form-control" required>
+                <div class="form-header">
+                    <h2>Online Admission Form</h2>
+                    <p>Fill out the form below to apply for admission</p>
+                </div>
+                
+                <form id="applicationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentName">Student's Full Name *</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherName">Father's Name *</label>
+                            <input type="text" id="fatherName" required>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="fatherName">Father's Name *</label>
-                        <input type="text" id="fatherName" class="form-control" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cnic">Father's CNIC *</label>
+                            <input type="text" id="cnic" placeholder="XXXXX-XXXXXXX-X" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" required>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="cnic">Father's CNIC *</label>
-                        <input type="text" id="cnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="dob">Date of Birth *</label>
-                        <input type="date" id="dob" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="grade">Grade Applying For *</label>
-                        <select id="grade" class="form-control" required>
-                            <option value="">Select Grade</option>
-                            <option value="playgroup">Playgroup</option>
-                            <option value="nursery">Nursery</option>
-                            <option value="prep">Prep</option>
-                            <option value="1">Class 1</option>
-                            <option value="2">Class 2</option>
-                            <option value="3">Class 3</option>
-                            <option value="4">Class 4</option>
-                            <option value="5">Class 5</option>
-                            <option value="6">Class 6</option>
-                            <option value="7">Class 7</option>
-                            <option value="8">Class 8</option>
-                            <option value="9">Class 9</option>
-                            <option value="10">Class 10 (Matric)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Contact Number *</label>
-                        <input type="tel" id="phone" class="form-control" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="grade">Grade Applying For *</label>
+                            <select id="grade" required>
+                                <option value="">Select Grade</option>
+                                <option value="playgroup">Playgroup</option>
+                                <option value="nursery">Nursery</option>
+                                <option value="prep">Prep</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10 (Matric)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Contact Number *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control">
+                        <input type="email" id="email">
                     </div>
                     
                     <div class="form-group">
                         <label for="address">Residential Address *</label>
-                        <textarea id="address" class="form-control" rows="3" required></textarea>
+                        <textarea id="address" rows="3" required></textarea>
                     </div>
                     
                     <div class="form-group">
                         <label for="previousSchool">Previous School (if any)</label>
-                        <input type="text" id="previousSchool" class="form-control">
+                        <input type="text" id="previousSchool">
                     </div>
                     
-                    <button type="submit" class="submit-btn">Submit Application</button>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the terms and conditions of admission</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Submit Application</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="section bg-light" id="gallery">
+    <section class="gallery" id="gallery">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>School Gallery</h2>
+                <p>Explore our campus and facilities</p>
             </div>
-            <div class="gallery-container">
+            
+            <div class="gallery-grid">
                 <div class="gallery-item">
-                    <div class="gallery-logo">
-                        <div class="gallery-title">THE</div>
-                        <div class="gallery-title">KNOWLEDGE</div>
-                        <div class="gallery-title">PUBLIC</div>
-                        <div class="gallery-title">SCHOOL</div>
+                    <div class="gallery-content">
+                        <div class="gallery-logo">
+                            <div>THE</div>
+                            <div>KNOWLEDGE</div>
+                            <div>PUBLIC</div>
+                            <div>SCHOOL</div>
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-admissions">
-                        <div class="gallery-subtitle">ADMISSIONS OPEN</div>
-                        <div class="gallery-grade">PLAYGROUP TO MATRIC</div>
-                        <div class="gallery-phone">0300-00521168</div>
-                        <div class="gallery-phone">0002-0371919</div>
+                    <div class="gallery-content">
+                        <div class="gallery-admissions">
+                            <h3>ADMISSIONS OPEN</h3>
+                            <p>PLAYGROUP TO MATRIC</p>
+                            <div class="phone-numbers">
+                                <p><i class="fas fa-phone"></i> 0300-00521168</p>
+                                <p><i class="fas fa-phone"></i> 0002-0371919</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-building">
-                        <div class="building-title">SCHOOL BUILDING</div>
-                        <i class="fas fa-school building-icon"></i>
-                        <div class="building-text">Modern Facilities & Spacious Classrooms</div>
+                    <div class="gallery-content">
+                        <div class="gallery-building">
+                            <i class="fas fa-school"></i>
+                            <h3>Modern Campus</h3>
+                            <p>State-of-the-art facilities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <div class="gallery-classroom">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <h3>Smart Classes</h3>
+                            <p>Technology enabled learning</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -294,48 +352,65 @@
     </section>
 
     <!-- Contact Section -->
-    <footer id="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Taha Campus, Multan, Pakistan</p>
-                    <p><i class="fas fa-phone"></i> 0300-00521168</p>
-                    <p><i class="fas fa-phone"></i> 0002-0371919</p>
-                    <p><i class="fas fa-envelope"></i> info@tkpsmultan.edu.pk</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 2:00 PM</p>
-                    <p><i class="fas fa-clock"></i> Sat: 9:00 AM - 12:00 PM</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#principal">Principal's Message</a>
-                    <a href="#admissions">Admissions</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#admission-form">Online Form</a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <p>Stay connected with us on social media for updates and announcements.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for more information</p>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023 The Knowledge Public School (Taha Campus), Multan. All Rights Reserved.</p>
-                <p>Designed with Excellence in Education</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>Taha Campus, Multan, Pakistan</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone Numbers</h3>
+                            <p>0300-00521168</p>
+                            <p>0002-0371919</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Address</h3>
+                            <p>info@tkpsmultan.edu.pk</p>
+                            <p>admissions@tkpsmultan.edu.pk</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 2:00 PM</p>
+                            <p>Saturday: 9:00 AM - 12:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+       
