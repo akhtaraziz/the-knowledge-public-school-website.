@@ -1,29 +1,29 @@
-// JavaScript Code
+// JavaScript for The Knowledge Public School Website
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
     
-    mobileMenuBtn.addEventListener('click', function() {
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-        const icon = mobileMenuBtn.querySelector('i');
+        
+        // Toggle body scroll when menu is open
         if (navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden';
         } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto';
         }
     });
     
     // Close mobile menu when clicking a link
-    const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
             navMenu.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto';
             
             // Update active link
             navLinks.forEach(item => item.classList.remove('active'));
@@ -31,9 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission
-    const admissionForm = document.getElementById('admissionForm');
-    admissionForm.addEventListener('submit', function(e) {
+    // Admission Form Submission
+    const applicationForm = document.getElementById('applicationForm');
+    const successModal = document.getElementById('successModal');
+    const closeModal = document.querySelector('.close-modal');
+    const applicationId = document.getElementById('applicationId');
+    
+    applicationForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Get form values
@@ -45,67 +49,160 @@ document.addEventListener('DOMContentLoaded', function() {
         const phone = document.getElementById('phone').value;
         const email = document.getElementById('email').value;
         const address = document.getElementById('address').value;
+        const previousSchool = document.getElementById('previousSchool').value;
         
-        // Validate form
+        // Validate required fields
         if (!studentName || !fatherName || !cnic || !dob || !grade || !phone || !address) {
-            alert('Please fill in all required fields.');
+            alert('Please fill in all required fields marked with *');
             return;
         }
         
         // Validate CNIC format (simple validation)
-        if (!/^\d{5}-\d{7}-\d{1}$/.test(cnic) && !/^\d{13}$/.test(cnic)) {
-            alert('Please enter a valid CNIC in format XXXXX-XXXXXXX-X or 13 digits.');
+        const cnicRegex = /^\d{5}-\d{7}-\d{1}$|^\d{13}$/;
+        if (!cnicRegex.test(cnic)) {
+            alert('Please enter a valid CNIC in format XXXXX-XXXXXXX-X or 13 digits');
             return;
         }
         
         // Validate phone number
-        if (!/^\d{11,}$/.test(phone.replace(/\D/g, ''))) {
-            alert('Please enter a valid 11-digit phone number.');
+        const phoneRegex = /^03\d{9}$/;
+        const cleanPhone = phone.replace(/\D/g, '');
+        if (!phoneRegex.test(cleanPhone)) {
+            alert('Please enter a valid Pakistani phone number starting with 03 (11 digits)');
             return;
         }
         
-        // In a real application, you would send this data to a server
-        // For this example, we'll just show a success message
-        const gradeText = document.querySelector(`#grade option[value="${grade}"]`).textContent;
-        alert(`Thank you, ${studentName}!\n\nYour application for ${gradeText} has been submitted successfully.\n\nApplication Details:\n- Father: ${fatherName}\n- CNIC: ${cnic}\n- DOB: ${dob}\n- Phone: ${phone}\n\nWe will contact you shortly for the next steps.`);
+        // Generate random application ID
+        const randomId = Math.floor(10000 + Math.random() * 90000);
+        applicationId.textContent = `TKPS-2024-${randomId}`;
+        
+        // Show success modal
+        successModal.style.display = 'flex';
+        
+        // In a real application, you would send data to server here
+        console.log('Application Submitted:', {
+            studentName,
+            fatherName,
+            cnic,
+            dob,
+            grade,
+            phone,
+            email,
+            address,
+            previousSchool,
+            applicationId: applicationId.textContent
+        });
         
         // Reset form
-        admissionForm.reset();
-        
-        // Scroll to top
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        applicationForm.reset();
     });
+    
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = this.querySelector('input[type="text"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        const subject = this.querySelectorAll('input[type="text"]')[1].value;
+        const message = this.querySelector('textarea').value;
+        
+        if (!name || !email || !subject || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Show success message
+        alert('Thank you for your message! We will get back to you soon.');
+        
+        // Reset form
+        contactForm.reset();
+    });
+    
+    // Close modal when clicking X
+    closeModal.addEventListener('click', function() {
+        successModal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === successModal) {
+            successModal.style.display = 'none';
+        }
+    });
+    
+    // Format CNIC input
+    const cnicInput = document.getElementById('cnic');
+    if (cnicInput) {
+        cnicInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 13) {
+                value = value.substring(0, 13);
+            }
+            
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '-' + value.substring(5);
+            }
+            
+            if (value.length > 13) {
+                value = value.substring(0, 13) + '-' + value.substring(13);
+            }
+            
+            e.target.value = value;
+        });
+    }
+    
+    // Format phone input
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 11) {
+                value = value.substring(0, 11);
+            }
+            
+            if (value.startsWith('03') && value.length > 2) {
+                e.target.value = value.substring(0, 4) + '-' + value.substring(4);
+            } else {
+                e.target.value = value;
+            }
+        });
+    }
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (href === '#') return;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: target.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Highlight active section in navigation
+    // Update active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    
     window.addEventListener('scroll', function() {
         let current = '';
-        const sections = document.querySelectorAll('section');
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 150)) {
+            
+            if (window.scrollY >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
         });
@@ -118,39 +215,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Format CNIC input
-    const cnicInput = document.getElementById('cnic');
-    cnicInput.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        
-        if (value.length > 13) {
-            value = value.substring(0, 13);
-        }
-        
-        if (value.length > 5) {
-            value = value.substring(0, 5) + '-' + value.substring(5);
-        }
-        
-        if (value.length > 13) {
-            value = value.substring(0, 13) + '-' + value.substring(13);
-        }
-        
-        e.target.value = value;
-    });
+    // Set current year in footer
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.querySelector('.footer-bottom p');
+    if (yearElement) {
+        yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
+    }
     
-    // Format phone input
-    const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
+    // Add loading animation
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
         
-        if (value.length > 11) {
-            value = value.substring(0, 11);
-        }
-        
-        if (value.length > 4) {
-            value = value.substring(0, 4) + '-' + value.substring(4);
-        }
-        
-        e.target.value = value;
+        // Add animation to stats
+        const statNumbers = document.querySelectorAll('.stat-item h3');
+        statNumbers.forEach(stat => {
+            const finalValue = parseInt(stat.textContent);
+            let currentValue = 0;
+            const increment = finalValue / 50;
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= finalValue) {
+                    currentValue = finalValue;
+                    clearInterval(timer);
+                }
+                stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('%') ? '%' : '+');
+            }, 30);
+        });
     });
 });
